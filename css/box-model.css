@@ -13,7 +13,219 @@ Dentro del modelo de caja hay que considerar que una caja tendrá 4 lados.
 
 */
 
+body {
+  margin: 0;
+}
+
 h1 {
-  border-width: 3px;
+  width: 400px;
+  height: 200px;
+  /* Propiedades de tipo shorthand */
+  border-color: green;
+  border-top-color: red;
+  border-width: medium; /* Delgado= 1px, medium - 3px, thick - 5px */
   border-style: solid;
+  border: 2px dashed blue;
+}
+
+.caja-uno,
+.caja-dos {
+  background-color: chocolate;
+  border: medium solid orange;
+
+  /* Esto aplica para margin y paddiing
+  1 valor = aplicar a los 4 lados
+  2 valores =
+  primer valor es para los lados verticales (t/b)
+  segundo valor es para los lados horizontales (l/r)
+  3 valores =
+  primer valor es para top
+  segundo valor es para los lados horizontales (l/r)
+  tercer valor es para bottom
+  4 valores= Piensa en manecillas de reloj
+  primer valor top
+  segundo valor right
+  tercer valor bottom
+  cuarto valor left
+  */
+  padding: 10px;
+  margin: 20px;
+
+  padding: 20px 40px;
+  margin: 40px 20px;
+  padding: 0 40px 20px;
+  margin: 50px 30px 0;
+  padding: 0 40px 20px 50px;
+  margin: 100px 50px 30px 0;
+}
+
+/* Cajas en línea
+-Ocupan el espacio necesario para mostrar su contenido.
+-No tienen dimensiones modificables (alto,ancho).
+-No permiten otros elementos a su lado.
+-Padding y margin solo empujan a elemntos adyacentes en horizontal, NUNCA EN VERTICAL.
+
+Cajas en bloque.
+-Ocupan todo el ancho disponible, lo que genera saltos de línea.
+-Tienen dimensiones modificables (alto y ancho)
+-No permiten otros elementos a su lado (aunque especifique un ancho, siguen ocupando todo el espacio disponible a lo ancho, generando saltos de línea.
+
+
+*/
+
+.caja-linea,
+.caja-bloque {
+  background-color: darkcyan;
+  width: 500px;
+  height: 250px;
+  border: medium solid black;
+  padding: 16px;
+}
+
+.caja-linea {
+  margin: 48px;
+  display: inline;
+}
+.caja-bloque {
+  margin: 32px;
+  display: block;
+}
+
+/* 
+Propiedad Display
+-inline
+-block
+-inline-block - Se comporta como un elemento de línea pero acepta modificar sus diemnsiones (alto y ancho)
+-none
+-table
+-list item
+-flex
+-grid
+
+
+
+*/
+
+.caja-none,
+.caja-linea-bloque,
+.caja-hidden {
+  background-color: aqua;
+  color: white;
+  width: 600px;
+  height: 300px;
+  border: medium solid black;
+}
+
+.caja-linea-bloque {
+  display: inline-block;
+}
+
+.caja-none {
+  display: none;
+}
+
+.caja-hidden {
+  visibility: hidden;
+}
+
+.overflow {
+  background-color: darkturquoise;
+  width: 200px;
+  height: 100px;
+  /* overflow: visible;
+  overflow: hidden;
+  overflow: scroll;
+  overflow: auto; */
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+/* Tamaño de caja */
+
+.box-sizing-content,
+.box-sizing-border {
+  background-color: deepskyblue;
+  box-sizing: content-box;
+  width: 500px;
+  height: 250px;
+  padding: 10px;
+  border: thick solid black;
+}
+
+.box-sizing-border {
+  box-sizing: border-box;
+}
+
+.container-col-3 {
+  background-color: burlywood;
+  width: 600px;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.container-col-3 > * {
+  box-sizing: border-box;
+  border: thin solid red;
+  width: 200px;
+  float: left;
+}
+
+/* Apply a natural box layout modedl to all elements, but allowing components to change*/
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Floats */
+
+.container-floats {
+  background-color: cornflowerblue;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+/* Colapso de margenes verticales */
+
+.margin-colapse {
+  background-color: skyblue;
+}
+
+.margin-colapse section {
+  border: thin solid black;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.margin-colapse span {
+  display: inline-block;
+  margin-right: 16px;
+  border: thin solid black;
+  margin-left: 16px;
+}
+
+/* Centrado de cajas */
+
+.sitio-web {
+  border: thin solid black;
+  background-color: thistle;
+  width: 800px;
+  height: 1000px;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
